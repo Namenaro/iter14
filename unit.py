@@ -17,7 +17,7 @@ class BinaryUnit:
             X, Y = get_coords_for_radius(expected_x, expected_y, r)
             for i in range(len(X)):
                 mean = make_measurement(pic, X[i], Y[i], self.sensor_field_radius)
-                if mean >= self.event_detector_min and mean <= self.event_detector_max:
+                if mean >= self.A_min and mean <= self.A_max:
                     matches.append([X[i],Y[i]])
         return matches
 

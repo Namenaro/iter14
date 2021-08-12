@@ -42,5 +42,16 @@
 #2 для данной А ищем такое Б что h(A) + h(b) << h(AB)
 
 
+from logger import *
+from find_candidates import *
+
+def make_exp0():
+    logger = HtmlLogger("it14_ex0")
+    cf = CandidatesFinder()
+    cf.get_simplest_candidates(radius=1, logger=logger)
+    logger.close()
+
+if __name__ == "__main__":
+    make_exp0()
 
 

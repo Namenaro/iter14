@@ -1,5 +1,7 @@
 from random import choice
 import random
+import matplotlib.pyplot as plt
+import numpy as np
 
 def select_random_pic(pics):
     return choice(pics)
@@ -27,4 +29,12 @@ def select_situation(binary_unit, pics):
     pic = select_random_pic(pics)
     XY = apply_binary_unit_to_pic(pic, binary_unit)
     index = random.randint(0, len(XY)-1)
-    return XY[index][0], XY[index][1]
+    return XY[index][0], XY[index][1], pic
+
+def get_hist(values,nbins):
+    if not isinstance(values, np.ndarray):
+        values = np.array(values)
+    (probs, bins, _) = plt.hist(values, bins=nbins,
+                                    weights=np.ones_like(values) / len(values), range=(0, 255))
+
+    return probs, bins

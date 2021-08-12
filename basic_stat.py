@@ -54,7 +54,7 @@ class SensRadiusesEmpiricDatabase:
 
 
     def _get_hists_for_sensradiuses(self):
-        filename = "../sens_radiuses_hists.json"
+        filename = "sens_radiuses_hists.json"
         if os.path.isfile(filename):
             with open(filename) as f:
                 data = json.load(f)

@@ -35,22 +35,40 @@ def get_coords_for_radius(centerx, centery, radius):
     # x>0  -> y1 = radius-|x|
     X=[]
     Y=[]
+    if radius == 0:
+        return [centerx], [centery]
 
     for modx in range(0,radius+1):
-        # x>0
         mody = radius - modx
+        # x>0
+        if modx!=0 and mody!=0:
+            X.append(modx+centerx)
+            Y.append(mody+centery)
 
-        X.append(modx+centerx)
-        Y.append(mody+centery)
+            X.append(-modx + centerx)
+            Y.append(mody + centery)
 
-        X.append(modx + centerx)
-        Y.append(-mody + centery)
-        # x<0
-        X.append(-modx + centerx)
-        Y.append(mody + centery)
+            X.append(modx + centerx)
+            Y.append(-mody + centery)
 
-        X.append(-modx + centerx)
-        Y.append(-mody + centery)
+            X.append(-modx + centerx)
+            Y.append(-mody + centery)
+
+        if modx==0 and mody!=0:
+            X.append(modx+centerx)
+            Y.append(mody+centery)
+
+            X.append(modx + centerx)
+            Y.append(-mody + centery)
+
+        if modx!=0 and mody==0:
+            X.append(modx+centerx)
+            Y.append(mody+centery)
+
+            X.append(-modx + centerx)
+            Y.append(mody + centery)
+
+
     return X,Y
 
 def get_size_of_field_by_its_radius(radius):
