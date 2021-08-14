@@ -21,14 +21,16 @@ class NonBinaryUnitStat:
             activations.append(activation)
 
 
-    def get_conditional_sample(self, condition):
+    def get_conditional_sample(self, condition, pics=None):
         # пробегаем по всем картинкам, в каждой точке проверяя condition
         # в тех точках, где condition=True, провоим замер этим юнитом,
         # результат (число) записываем в выборку, возвращаем ее
         ymax = self.pics[0].shape[0]
         xmax = self.pics[0].shape[1]
+        if pics is None:
+            pics = self.pics
         activations = []
-        for pic in self.pics:
+        for pic in pics:
             for y in range(0, ymax):
                 for x in range(0, xmax):
                     if condition(pic, x, y):

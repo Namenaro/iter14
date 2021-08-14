@@ -48,7 +48,20 @@ from find_candidates import *
 def make_exp0():
     logger = HtmlLogger("it14_ex0")
     cf = CandidatesFinder()
-    cf.get_simplest_candidates(radius=1, logger=logger)
+    logger.add_text("vary sens_field_radius_________________________________________________________________")
+    cf.get_simplest_candidates(radius=5, logger=logger, sens_field_radius=0, u_radius=0)
+    cf.get_simplest_candidates(radius=5, logger=logger, sens_field_radius=2, u_radius=0)
+    cf.get_simplest_candidates(radius=5, logger=logger, sens_field_radius=4, u_radius=0)
+    cf.get_simplest_candidates(radius=5, logger=logger, sens_field_radius=6, u_radius=0)
+    logger.add_text("vary u_radius_________________________________________________________________")
+    cf.get_simplest_candidates(radius=5, logger=logger, sens_field_radius=0, u_radius=3)
+    cf.get_simplest_candidates(radius=5, logger=logger, sens_field_radius=0, u_radius=2)
+    cf.get_simplest_candidates(radius=5, logger=logger, sens_field_radius=0, u_radius=4)
+    logger.add_text("_________________________________________________________________")
+
+    cf.get_simplest_candidates(radius=5, logger=logger, sens_field_radius=4, u_radius=3)
+    cf.get_simplest_candidates(radius=5, logger=logger, sens_field_radius=4, u_radius=2)
+    cf.get_simplest_candidates(radius=5, logger=logger, sens_field_radius=4, u_radius=4)
     logger.close()
 
 if __name__ == "__main__":
