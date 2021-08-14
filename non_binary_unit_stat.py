@@ -36,6 +36,8 @@ class NonBinaryUnitStat:
                     if condition(pic, x, y):
                         activation = self.nonbinary_unit.apply(pic, x,y)
                         activations.append(activation)
+                        if len(activations)>300:
+                            return activations
         return activations
 
 
