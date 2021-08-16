@@ -12,6 +12,7 @@ class CandidatesFinder:
         self.etalons = etalons_of3()
 
     def get_simplest_candidates(self, radius, logger, sens_field_radius, u_radius):
+       logger.add_text(str(vars(self.binary_unit)))
        x, y, pic =select_situation(self.binary_unit, self.etalons)
        X, Y = get_coords_for_radius(x, y, radius)
        fig = plot_points_on_pic_first_red(pic, [x]+X, [y]+Y)

@@ -2,7 +2,7 @@ from utils import *
 from stat_hypos import *
 
 def visualise_two_samples(uncon_sample, cond_sample, logger):
-    #logger.add_text("sig lavel=" + "{:.5f}".format(measure_samples_difference(uncon_sample, cond_sample)))
+    logger.add_text("sig lavel=" + "{:.5f}".format(measure_samples_difference(uncon_sample, cond_sample)))
     probs1, bins = get_hist(uncon_sample, nbins=20)
     probs2, bins = get_hist(cond_sample, nbins=20)
     logger.add_text("hist diff =" + "{:.5f}".format(measure_hist_difference1(probs1,probs2)))
