@@ -18,3 +18,5 @@ def measure_hist_difference2(probs1, probs2):
 def measure_hist_difference3(probs1, probs2):
     return distance.euclidean(probs1, probs2)
 
+def measure_max_hist_difference(probs1, probs2):
+    return max(np.array(probs2)-np.array(probs1))

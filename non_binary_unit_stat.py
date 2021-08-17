@@ -8,7 +8,7 @@ class NonBinaryUnitStat:
         if pics is None:
             self.pics, _ = get_diverse_set_of_numbers(100)
 
-    def get_unconditional_sample(self, sample_size=300):
+    def get_unconditional_sample(self, sample_size):
         # в случайных точках случайгых картинок проводим замер этим юнитом,
         # результат (число) записываем в выборку, возвращаем ее
         activations = []
@@ -21,7 +21,7 @@ class NonBinaryUnitStat:
             activations.append(activation)
 
 
-    def get_conditional_sample(self, condition, pics=None):
+    def get_conditional_sample(self, condition, sample_size, pics=None):
         # пробегаем по всем картинкам, в каждой точке проверяя condition
         # в тех точках, где condition=True, провоим замер этим юнитом,
         # результат (число) записываем в выборку, возвращаем ее
@@ -36,7 +36,7 @@ class NonBinaryUnitStat:
                     if condition(pic, x, y):
                         activation = self.nonbinary_unit.apply(pic, x,y)
                         activations.append(activation)
-                        if len(activations)>300:
+                        if len(activations) >= sample_size:
                             return activations
         return activations
 

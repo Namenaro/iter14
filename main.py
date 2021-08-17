@@ -45,15 +45,11 @@
 from logger import *
 from find_candidates import *
 
-def make_exp0():
-    logger = HtmlLogger("it14_ex0")
-    cf = CandidatesFinder(etalon=224, event_diameter=15, sensor_field_radius=0)
-    logger.add_text("vary sens_field_radius_________________________________________________________________")
-    cf.get_simplest_candidates(radius=1, logger=logger, sens_field_radius=0, u_radius=1)
+def make_exp1():
+    pass
 
-    logger.close()
 
 if __name__ == "__main__":
-    make_exp0()
+    make_exp1()
 
 
